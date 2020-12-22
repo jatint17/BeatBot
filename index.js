@@ -64,4 +64,4 @@ client.on('message', async message =>{
     }
 })
 //to add search from youtube and queue feature tomorrow
-client.login('NzY4NTg1NzcyMjc0MDI0NDc4.X5CnRw.-gHKuUzSAc6qzdAgx6Grq3LfVT0');
+client.login('your bot token here');
