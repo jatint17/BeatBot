@@ -6,7 +6,7 @@ const ytdl = require('ytdl-core');
 const prefix = '.';
 
 client.on('ready', ()=> {
-    console.log('active');
+    console.log('bot is online')
 });
 
 client.on('message', async message =>{
@@ -23,12 +23,14 @@ client.on('message', async message =>{
     if(x.startsWith(`${prefix}play`))
     {
         const vc = message.member.voice.channel
+        const permission = vc.permissionsFor(message.client.user)
+
         if(!vc)
         {
-            return message.channel.send("Please connect to a voice channel");
+            console.log("member not connected to vc")
+            return message.channel.send("Please connect to a voice channel")
         }
 
-        const permission = vc.permissionsFor(message.client.user)
         if(!permission.has('CONNECT') || !permission.has('SPEAK'))
         {
             return message.channel.send("Please give permission")
@@ -46,6 +48,20 @@ client.on('message', async message =>{
 
         const dispatcher = conn.play(ytdl(args[1]))
     }
-})
 
-client.login('*your token here');
+    if(x.startsWith(`${prefix}stop`))
+    {
+        const vc = message.member.voice.channel
+        if(!vc)
+        {
+            return message.channel.send("Please connect to a voice channel first")
+        }
+        else
+        {
+            vc.leave()
+            return
+        }
+    }
+})
+//to add search from youtube and queue feature tomorrow
+client.login('NzY4NTg1NzcyMjc0MDI0NDc4.X5CnRw.-gHKuUzSAc6qzdAgx6Grq3LfVT0');
