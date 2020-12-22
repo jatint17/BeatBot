@@ -75,5 +75,5 @@ client.on('message', async message => {
         }
     }
 })
-//to add search from youtube and queue feature tomorrow
+
 client.login('*your token here');
