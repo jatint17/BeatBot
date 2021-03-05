@@ -12,7 +12,7 @@ client.on('ready', ()=> {
 });
 
 client.on('message', async message => {
-    const youtube = new YouTube('AIzaSyDeYAEJj6RZVM-DZvO0ci_05hNUmVjjF8k')
+    const youtube = new YouTube('*your youtube api key here')
     
     var x = message.content;
     const args = x.substring(prefix.length).split(" ");
